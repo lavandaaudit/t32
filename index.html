@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IBONARIUM · MODULAR TEXTURE 32</title>
+    <meta name="description" content="Cinematic texture generator and modular sequencer for long ambient soundscapes.">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <div class="logo-section">
+                <h1>IBONARIUM · TEXTURE.32</h1>
+            </div>
+
+            <div class="master-controls">
+                <div class="control-group">
+                    <span class="control-label">BPM</span>
+                    <div id="bpm-knob" class="knob-master"></div>
+                    <span id="bpm-display" class="control-value">120</span>
+                </div>
+
+                <div class="control-group">
+                    <span class="control-label">MASTER</span>
+                    <div id="master-vol-knob" class="knob-master"></div>
+                    <span id="vol-display" class="control-value">-12dB</span>
+                </div>
+
+                <div class="transport-buttons">
+                    <button id="play-btn" class="primary">PLAY</button>
+                    <button id="stop-btn">STOP</button>
+                    <button id="clear-btn">CLEAR</button>
+                </div>
+            </div>
+        </header>
+
+        <div class="sequencer-container" id="sequencer-grid">
+            <!-- 7 Tracks will be generated here by JS -->
+        </div>
+
+        <div class="bottom-panels">
+            <div class="panel fx-panel">
+                <div class="panel-title">FX MATRIX</div>
+                <div class="fx-matrix">
+                    <div class="fx-module" id="fx-delay">
+                        <div class="fx-name">DELAY</div>
+                        <div class="fx-knobs">
+                            <input type="range" class="fx-param" data-fx="delay" data-param="wet" min="0" max="1"
+                                step="0.01" value="0">
+                        </div>
+                    </div>
+                    <div class="fx-module" id="fx-reverb">
+                        <div class="fx-name">REVERB</div>
+                        <div class="fx-knobs">
+                            <input type="range" class="fx-param" data-fx="reverb" data-param="wet" min="0" max="1"
+                                step="0.01" value="0.3">
+                        </div>
+                    </div>
+                    <div class="fx-module" id="fx-crush">
+                        <div class="fx-name">BITCRUSH</div>
+                        <div class="fx-knobs">
+                            <input type="range" class="fx-param" data-fx="crush" data-param="bits" min="1" max="16"
+                                step="1" value="8">
+                        </div>
+                    </div>
+                    <div class="fx-module" id="fx-chorus">
+                        <div class="fx-name">CHORUS</div>
+                        <div class="fx-knobs">
+                            <input type="range" class="fx-param" data-fx="chorus" data-param="wet" min="0" max="1"
+                                step="0.01" value="0.2">
+                        </div>
+                    </div>
+                    <div class="fx-module" id="fx-dist">
+                        <div class="fx-name">DISTORTION</div>
+                        <div class="fx-knobs">
+                            <input type="range" class="fx-param" data-fx="dist" data-param="distortion" min="0" max="1"
+                                step="0.01" value="0.1">
+                        </div>
+                    </div>
+                    <div class="fx-module" id="fx-filter">
+                        <div class="fx-name">MASTER LPF</div>
+                        <div class="fx-knobs">
+                            <input type="range" class="fx-param" data-fx="filter" data-param="frequency" min="20"
+                                max="20000" step="1" value="20000">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel keyboard-panel">
+                <div class="panel-header">
+                    <div class="panel-title">LIVE MODULATOR</div>
+                    <div class="octave-controls">
+                        <button class="octave-btn" id="octave-down">&lt;</button>
+                        <span class="control-label">OCT: <span id="octave-display">3</span></span>
+                        <button class="octave-btn" id="octave-up">&gt;</button>
+                    </div>
+                </div>
+                <div class="keyboard" id="keyboard">
+                    <!-- Keyboard keys will be generated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tone.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
